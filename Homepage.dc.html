@@ -72,11 +72,13 @@
       [data-fgrid]{grid-template-columns:1fr 1fr !important;gap:32px 24px !important}
       [data-fbar]{flex-wrap:wrap !important;gap:10px !important}
       [data-fmark]{right:20px !important;width:220px !important}
+      [data-bleed]{margin:0 -20px !important;padding:0 20px !important}
       [data-chev]{display:none !important}
-      [data-hero-copy]{padding:96px 20px 32px !important;gap:16px !important;justify-content:flex-start !important;flex:0 0 auto !important}
+      [data-hero-copy]{padding:92px 20px 44px !important;gap:16px !important;justify-content:center !important;flex:1 1 auto !important;min-height:0 !important}
       [data-hero-copy] p{font-size:15.5px !important}
     }
     @media (max-width:560px){
+      [data-cycleline]{white-space:normal !important}
       [data-fgrid]{grid-template-columns:1fr !important}
       [data-svcrow]{grid-template-columns:44px 1fr !important}
       [data-hero-copy] > div:first-child{gap:7px !important}
@@ -241,13 +243,13 @@
 
     <span style="{{ navScrimStyle }}"></span>
 
-    <div data-hero-copy="1" style="position:relative;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;padding:40px 56px 96px">
+    <div data-hero-copy="1" style="position:relative;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;padding:96px 56px 96px">
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
         <span style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(18,19,29,.6);border:1px solid rgba(255,255,255,.12);font-size:12.4px;color:var(--color-neutral-300);backdrop-filter:blur(10px)"><i style="display:block;width:7px;height:7px;border-radius:50%;background:#3B9EE8;box-shadow:0 0 8px #3B9EE8;animation:hyPulse 2.2s ease-in-out infinite"></i>Data Centre</span>
         <span style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(18,19,29,.6);border:1px solid rgba(255,255,255,.12);font-size:12.4px;color:var(--color-neutral-300);backdrop-filter:blur(10px)"><i style="display:block;width:7px;height:7px;border-radius:50%;background:#3B9EE8;box-shadow:0 0 8px #3B9EE8;animation:hyPulse 2.2s ease-in-out .7s infinite"></i>Internet</span>
         <span style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(18,19,29,.6);border:1px solid rgba(255,255,255,.12);font-size:12.4px;color:var(--color-neutral-300);backdrop-filter:blur(10px)"><i style="display:block;width:7px;height:7px;border-radius:50%;background:#3B9EE8;box-shadow:0 0 8px #3B9EE8;animation:hyPulse 2.2s ease-in-out 1.4s infinite"></i>Hypervisor</span><span style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(18,19,29,.6);border:1px solid rgba(255,255,255,.12);font-size:12.4px;color:var(--color-neutral-300);backdrop-filter:blur(10px)"><i style="display:block;width:7px;height:7px;border-radius:50%;background:#3B9EE8;box-shadow:0 0 8px #3B9EE8;animation:hyPulse 2.2s ease-in-out 2.8s infinite"></i>Arch1medes</span>
       </div>
-      <h1 style="font:500 clamp(38px,4.7vw,66px)/1.04 var(--font-heading);letter-spacing:-.04em;margin:0;max-width:1180px;min-height:2.08em;color:var(--color-neutral-100)">Bespoke telephony solutions<br><span style="white-space:nowrap">for <span style="{{ cycleStyle }}">{{ cycleWord }}</span></span></h1>
+      <h1 style="font:500 clamp(38px,4.7vw,66px)/1.04 var(--font-heading);letter-spacing:-.04em;margin:0;max-width:min(1180px,100%);min-height:2.08em;color:var(--color-neutral-100);text-wrap:balance">Bespoke telephony solutions<br><span data-cycleline="1" style="white-space:nowrap">for <span style="{{ cycleStyle }}">{{ cycleWord }}</span></span></h1>
       <p style="font-size:18px;line-height:1.6;color:var(--color-neutral-300);margin:0;max-width:600px">We are telephony engineers, voice AI specialists and software developers &mdash; and we own the entire stack, from the data centre and the network to the code itself.</p>
       <div style="display:flex;justify-content:center;margin-top:6px"><span class="btn" onClick="{{ openDrawer }}" style="{{ heroBtnStyle }}" onMouseEnter="{{ heroBtnOn }}" onMouseLeave="{{ heroBtnOff }}">Talk to an engineer</span></div>
     </div>
@@ -285,47 +287,41 @@
       <span style="font-size:13.5px;line-height:1.55;color:var(--color-neutral-500)">Maximise agent talk time with Vicidial: predictive and preview dialling, blended inbound and outbound queues, live campaign monitoring, whisper and barge, and the reporting QA actually asks for.</span>
       <span style="font-size:34px;line-height:1;font-weight:300;color:#F2B84B;justify-self:end">&rsaquo;</span>
     </a>
-    <a data-svcrow="1" href="Enterprise.dc.html" style="display:grid;grid-template-columns:74px 1fr 1.6fr 34px;gap:22px;align-items:baseline;margin-left:120px;padding:26px 120px 26px 0;border-top:2px solid var(--color-divider);color:var(--color-text)" style-hover="background:color-mix(in srgb,#6C8CFF 10%,transparent)">
-      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#6C8CFF">03</span>
-      <span style="font:500 22px/1.2 var(--font-heading);letter-spacing:-.015em">Enterprise Telephony</span>
-      <span style="font-size:13.5px;line-height:1.55;color:var(--color-neutral-500)">Carrier-grade voice for operators and large systems &mdash; SIP trunking, session border control, least-cost routing and multi-site redundancy, engineered around your existing switch rather than replacing it.</span>
-      <span style="font-size:34px;line-height:1;font-weight:300;color:#6C8CFF;justify-self:end">&rsaquo;</span>
-    </a>
     <a data-svcrow="1" href="Programmable-Telephony.dc.html" style="display:grid;grid-template-columns:74px 1fr 1.6fr 34px;gap:22px;align-items:baseline;margin-left:120px;padding:26px 120px 26px 0;border-top:2px solid var(--color-divider);color:var(--color-text)" style-hover="background:color-mix(in srgb,#E86FA4 10%,transparent)">
-      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#E86FA4">04</span>
+      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#6C8CFF">03</span>
       <span style="font:500 22px/1.2 var(--font-heading);letter-spacing:-.015em">Programmable Telephony</span>
       <span style="font-size:13.5px;line-height:1.55;color:var(--color-neutral-500)">High-throughput voice APIs for teams who would rather write the logic themselves. Originate, bridge and control calls from your own code, stream audio live, and scale to thousands of channels.</span>
-      <span style="font-size:34px;line-height:1;font-weight:300;color:#E86FA4;justify-self:end">&rsaquo;</span>
+      <span style="font-size:34px;line-height:1;font-weight:300;color:#6C8CFF;justify-self:end">&rsaquo;</span>
     </a>
-    <a data-svcrow="1" href="AI-Voice.dc.html" style="display:grid;grid-template-columns:74px 1fr 1.6fr 34px;gap:22px;align-items:baseline;margin-left:120px;padding:26px 120px 26px 0;border-top:2px solid var(--color-divider);color:var(--color-text)" style-hover="background:color-mix(in srgb,#8CC96B 10%,transparent)">
-      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#8CC96B">05</span>
+    <a data-svcrow="1" href="Voice%20AI.dc.html" style="display:grid;grid-template-columns:74px 1fr 1.6fr 34px;gap:22px;align-items:baseline;margin-left:120px;padding:26px 120px 26px 0;border-top:2px solid var(--color-divider);color:var(--color-text)" style-hover="background:color-mix(in srgb,#8CC96B 10%,transparent)">
+      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#E86FA4">04</span>
       <span style="font:500 22px/1.2 var(--font-heading);letter-spacing:-.015em">Voice AI Agents</span>
       <span style="font-size:13.5px;line-height:1.55;color:var(--color-neutral-500)">Voice AI agents that answer in 950 milliseconds, speak like people and never take lunch. They qualify leads, book appointments and hand over to a human with full context the moment a call needs one.</span>
-      <span style="font-size:34px;line-height:1;font-weight:300;color:#8CC96B;justify-self:end">&rsaquo;</span>
+      <span style="font-size:34px;line-height:1;font-weight:300;color:#E86FA4;justify-self:end">&rsaquo;</span>
     </a>
     <a data-svcrow="1" href="Data-Centre.dc.html" style="display:grid;grid-template-columns:74px 1fr 1.6fr 34px;gap:22px;align-items:baseline;margin-left:120px;padding:26px 120px 26px 0;border-top:2px solid var(--color-divider);color:var(--color-text)" style-hover="background:color-mix(in srgb,#F2905B 10%,transparent)">
-      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#F2905B">06</span>
+      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#8CC96B">05</span>
       <span style="font:500 22px/1.2 var(--font-heading);letter-spacing:-.015em">Data Centre &amp; Hosting</span>
       <span style="font-size:13.5px;line-height:1.55;color:var(--color-neutral-500)">A purpose-built environment inside Teraco, South Africa's carrier-neutral data centre. Colocation by the U or the rack, managed compute and storage, redundant power, and financing on the capex.</span>
-      <span style="font-size:34px;line-height:1;font-weight:300;color:#F2905B;justify-self:end">&rsaquo;</span>
+      <span style="font-size:34px;line-height:1;font-weight:300;color:#8CC96B;justify-self:end">&rsaquo;</span>
     </a>
     <a data-svcrow="1" href="Software-Development.dc.html" style="display:grid;grid-template-columns:74px 1fr 1.6fr 34px;gap:22px;align-items:baseline;margin-left:120px;padding:26px 120px 26px 0;border-top:2px solid var(--color-divider);color:var(--color-text)" style-hover="background:color-mix(in srgb,#9184D9 12%,transparent)">
-      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#9184D9">07</span>
+      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#F2905B">06</span>
       <span style="font:500 22px/1.2 var(--font-heading);letter-spacing:-.015em">Software Development</span>
       <span style="font-size:13.5px;line-height:1.55;color:var(--color-neutral-500)">Custom telephony and business software, built by engineers who run carriers for a living. CRM and billing integrations, portals, mobile apps and middleware for whatever legacy system you depend on.</span>
-      <span style="font-size:34px;line-height:1;font-weight:300;color:#9184D9;justify-self:end">&rsaquo;</span>
+      <span style="font-size:34px;line-height:1;font-weight:300;color:#F2905B;justify-self:end">&rsaquo;</span>
     </a>
     <a data-svcrow="1" href="Wholesale.dc.html" style="display:grid;grid-template-columns:74px 1fr 1.6fr 34px;gap:22px;align-items:baseline;margin-left:120px;padding:26px 120px 26px 0;border-top:2px solid var(--color-divider);color:var(--color-text)" style-hover="background:color-mix(in srgb,#3B9EE8 10%,transparent)">
-      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#3B9EE8">08</span>
+      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#9184D9">07</span>
       <span style="font:500 22px/1.2 var(--font-heading);letter-spacing:-.015em">Wholesale &amp; Resellers</span>
       <span style="font-size:13.5px;line-height:1.55;color:var(--color-neutral-500)">Stable platforms at honest prices, white-labelled where you want them. Wholesale minutes and geographic numbering, reseller PBX and dialler tenancies, your own brand on the portal, and margins you can build a business on.</span>
-      <span style="font-size:34px;line-height:1;font-weight:300;color:#3B9EE8;justify-self:end">&rsaquo;</span>
+      <span style="font-size:34px;line-height:1;font-weight:300;color:#9184D9;justify-self:end">&rsaquo;</span>
     </a>
-    <a data-svcrow="1" href="Software-Development.dc.html" style="display:grid;grid-template-columns:74px 1fr 1.6fr 34px;gap:22px;align-items:baseline;margin-left:120px;padding:26px 120px 26px 0;border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider);color:var(--color-text)" style-hover="background:color-mix(in srgb,#B95FC4 10%,transparent)">
-      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#B95FC4">09</span>
+    <a data-svcrow="1" href="Consulting.dc.html" style="display:grid;grid-template-columns:74px 1fr 1.6fr 34px;gap:22px;align-items:baseline;margin-left:120px;padding:26px 120px 26px 0;border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider);color:var(--color-text)" style-hover="background:color-mix(in srgb,#B95FC4 10%,transparent)">
+      <span style="font-family:var(--font-heading);font-size:34px;font-weight:800;line-height:1;letter-spacing:-.04em;color:#3B9EE8">08</span>
       <span style="font:500 22px/1.2 var(--font-heading);letter-spacing:-.015em">Consulting</span>
       <span style="font-size:13.5px;line-height:1.55;color:var(--color-neutral-500)">Advice from the people who build it, before anybody writes a line of code. We scope the system, choose the architecture, size the infrastructure and cost it honestly &mdash; telephony or otherwise.</span>
-      <span style="font-size:34px;line-height:1;font-weight:300;color:#B95FC4;justify-self:end">&rsaquo;</span>
+      <span style="font-size:34px;line-height:1;font-weight:300;color:#3B9EE8;justify-self:end">&rsaquo;</span>
     </a>
   </div>
 
@@ -334,7 +330,7 @@
       <h2 style="font:500 30px/1.15 var(--font-heading);margin:0;letter-spacing:-.02em">What it costs.</h2>
       <span style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.1em;color:#3B9EE8">PRICING EXTRACT</span>
     </div>
-    <div style="margin:0 -120px;padding:0 120px;overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)">
+    <div data-bleed="1" style="margin:0 -120px;padding:0 120px;overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)">
       <div ref="{{ priceRef }}" style="display:flex;width:max-content;user-select:none;touch-action:pan-y;cursor:grab;animation:hyPriceRun 57.2s linear infinite;will-change:transform" style-hover="animation-play-state:running">
         <div style="display:flex;gap:20px;padding-right:20px">
           <sc-for list="{{ priceCards }}" as="p" hint-placeholder-count="6">
@@ -447,9 +443,8 @@
         <span style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-neutral-100);font-weight:700;margin-bottom:5px">Services</span>
         <a href="Office.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3B9EE8">Office Telephony</a>
         <a href="Call-Centre.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3B9EE8">Call Centre Telephony</a>
-        <a href="Enterprise.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3B9EE8">Enterprise Telephony</a>
         <a href="Programmable-Telephony.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3B9EE8">Programmable Telephony</a>
-        <a href="AI-Voice.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3B9EE8">Voice AI Agents</a>
+        <a href="Voice%20AI.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3B9EE8">Voice AI Agents</a>
         <a href="Data-Centre.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3B9EE8">Data Centre &amp; Hosting</a>
         <a href="Software-Development.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3B9EE8">Software Development</a>
         <a href="Wholesale.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3B9EE8">Wholesale &amp; Resellers</a>
@@ -1303,7 +1298,7 @@ class Component extends DCLogic {
     const cards = Component.P.map(p => ({
       kind: p[0], title: p[2], price: p[3], unit: p[4], note: p[5], href: p[6] || 'Office.dc.html',
       more: 'margin-top:auto;padding-top:4px;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:500;text-decoration:none;color:' + p[1],
-      box: 'position:relative;overflow:hidden;flex:none;width:380px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;padding:30px 28px 28px;border-radius:var(--radius-md,8px);border:1px solid color-mix(in srgb,' + p[1] + ' 26%,var(--color-divider));background:linear-gradient(160deg,color-mix(in srgb,' + p[1] + ' 9%,transparent),transparent 62%),var(--color-surface,#1b1d2b)',
+      box: 'position:relative;overflow:hidden;flex:none;width:min(380px,78vw);box-sizing:border-box;display:flex;flex-direction:column;gap:10px;padding:30px 28px 28px;border-radius:var(--radius-md,8px);border:1px solid color-mix(in srgb,' + p[1] + ' 26%,var(--color-divider));background:linear-gradient(160deg,color-mix(in srgb,' + p[1] + ' 9%,transparent),transparent 62%),var(--color-surface,#1b1d2b)',
       kicker: 'font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:' + p[1],
       priceStyle: 'font:500 42px/1 var(--font-heading);letter-spacing:-.035em;white-space:nowrap;color:' + p[1],
       rule: 'height:1px;background:linear-gradient(to right,color-mix(in srgb,' + p[1] + ' 40%,transparent),transparent)'

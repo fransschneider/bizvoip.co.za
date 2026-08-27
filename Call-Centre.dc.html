@@ -52,7 +52,48 @@
     @keyframes hyIconFall{0%{transform:translateY(0) rotate(-8deg);opacity:0}12%{opacity:1}86%{opacity:1}100%{transform:translateY(108vh) rotate(8deg);opacity:0}}
     @keyframes hyBreathA{0%,100%{transform:scale(.82) translate(0,0)}50%{transform:scale(1.34) translate(6%,4%)}}
     @keyframes hyBreathB{0%,100%{transform:scale(1.3) translate(0,0)}50%{transform:scale(.84) translate(-6%,-4%)}}
-  </style>
+      .hy-mscrim{position:fixed;inset:0;background:rgba(6,7,14,.6);backdrop-filter:blur(2px);opacity:0;pointer-events:none;transition:opacity .3s ease;z-index:80}
+    .hy-mscrim[data-open="true"]{opacity:1;pointer-events:auto}
+    .hy-mnav{position:fixed;top:0;right:0;bottom:0;width:min(340px,86vw);background:#12131d;border-left:1px solid var(--color-divider);box-shadow:-24px 0 60px rgba(0,0,0,.5);transform:translateX(105%);transition:transform .35s cubic-bezier(.32,.72,.28,1);z-index:81;display:flex;flex-direction:column}
+    .hy-mnav[data-open="true"]{transform:translateX(0)}
+    @media (max-width:900px){
+      [data-navfx]{display:none !important}
+      [data-navcta]{display:none !important}
+      [data-mnav-btn]{display:flex !important}
+      [data-hero-guard="nav"]{top:12px !important;left:auto !important;right:16px !important;padding:0 !important;gap:0 !important;background:none !important;border:none !important;box-shadow:none !important;backdrop-filter:none !important;justify-content:flex-end !important;overflow:visible !important}
+      [data-hero-guard="nav"] > a:first-child{display:none !important}
+      [data-sec="1.1"]{height:auto !important;min-height:100svh !important}
+      [data-hero-copy]{padding:92px 20px 44px !important;gap:16px !important;justify-content:center !important;flex:1 1 auto !important;min-height:0 !important}
+      [data-hero-copy] p{font-size:15.5px !important}
+      [data-hero-guard="ticker"]{position:relative !important;bottom:auto !important;margin-top:20px !important;padding-bottom:22px !important}
+      [data-sec="1.1"]{padding:0 20px 0 20px !important;}
+      [data-sec="2.1"]{padding:104px 20px 0 20px !important;}
+      [data-sec="2.2"]{padding:0 20px 104px 20px !important;}
+      [data-sec="3.1"]{padding:0 20px 104px 20px !important;}
+      [data-sec="4.1"]{padding:88px 20px 88px 20px !important;}
+      [data-sec="3.2"]{padding:104px 20px 104px 20px !important;grid-template-columns:1fr !important;gap:28px !important;}
+      [data-sec="3.3"]{padding:0 20px 104px 20px !important;grid-template-columns:1fr !important;gap:28px !important;}
+      [data-sec="5.1"]{padding:0 20px 104px 20px !important;}
+      [data-sec="5.2"]{padding:88px 20px 88px 20px !important;}
+      [data-sec="6.1"]{padding:104px 20px 104px 20px !important;grid-template-columns:1fr !important;gap:28px !important;}
+      [data-sec="6.15"]{padding:88px 20px 88px 20px !important;}
+      [data-sec="6.2"]{padding:104px 20px 104px 20px !important;grid-template-columns:1fr !important;gap:28px !important;}
+      [data-sec="9.1"]{padding:104px 20px 104px 20px !important;}
+      [data-screen-label="14 Footer"]{padding:80px 20px 0 !important;background-position:20px top !important}
+      [data-mgrid]{grid-template-columns:1fr !important}
+      [data-fgrid]{grid-template-columns:1fr 1fr !important;gap:32px 24px !important}
+      [data-fbar]{flex-wrap:wrap !important;gap:10px !important}
+      [data-fmark]{right:20px !important;width:220px !important}
+      [data-bleed]{margin:0 -20px !important;padding:0 20px !important}
+      [data-chev]{display:none !important}
+      [data-bub]{display:none !important}
+    }
+    @media (max-width:560px){
+      [data-fgrid]{grid-template-columns:1fr !important}
+      [data-cycleline]{white-space:normal !important}
+      [data-hero-copy] > div:first-child{gap:7px !important}
+    }
+</style>
 </helmet>
 <div style="min-height:100vh;background:var(--color-bg);color:var(--color-text);--acc:{{ accentHex }}">
 
@@ -61,10 +102,11 @@
     <span style="position:absolute;right:-16%;top:-24%;width:58%;height:88%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,#9184D9 28%,transparent),transparent 66%);filter:blur(12px);animation:hyDriftB 54s ease-in-out -7s infinite"></span>
     <span style="position:absolute;left:24%;top:18%;width:52%;height:80%;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,#E86FA4 16%,transparent),transparent 66%);filter:blur(14px);animation:hyDriftC 62s ease-in-out -14s infinite"></span>
 
-    <div style="position:fixed;top:20px;left:40px;right:40px;z-index:50;display:flex;align-items:center;gap:clamp(8px,1.15vw,26px);flex-wrap:nowrap;box-sizing:border-box;overflow:hidden;padding:12px 22px;border-radius:999px;background:rgba(41,171,226,.11);border:1px solid rgba(41,171,226,.22);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 12px 32px rgba(0,0,0,.34)">
+    <div data-hero-guard="nav" style="position:fixed;top:20px;left:40px;right:40px;z-index:50;display:flex;align-items:center;gap:clamp(8px,1.15vw,26px);flex-wrap:nowrap;box-sizing:border-box;overflow:hidden;padding:12px 22px;border-radius:999px;background:rgba(41,171,226,.11);border:1px solid rgba(41,171,226,.22);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 12px 32px rgba(0,0,0,.34)">
       <a href="Homepage.dc.html" style="display:flex;align-items:center;flex:0 0 auto;color:inherit;text-decoration:none"><img data-logo="1" src="assets/logo-wordmark-white.png" alt="BizVoip" style="height:20px;width:auto;display:block"></a>
       <div data-navfx="07" style="display:flex;align-items:center;padding:12px 0;flex:1 1 auto;min-width:0;overflow:hidden;gap:clamp(5px,.85vw,22px);margin-left:clamp(5px,.85vw,20px);margin-right:8px;margin-top:-12px;margin-bottom:-12px;font-weight:600;font-size:clamp(9.6px,.82vw,13.4px);mask-image:linear-gradient(to right,#000 calc(100% - 18px),transparent);-webkit-mask-image:linear-gradient(to right,#000 calc(100% - 18px),transparent);color:var(--color-neutral-300)"><a href="Office.dc.html" style="color:inherit;white-space:nowrap">Office</a><a href="Call-Centre.dc.html" style="color:inherit;white-space:nowrap">Call Centre</a><a href="Programmable-Telephony.dc.html" style="color:inherit;white-space:nowrap">Programmable</a><a href="Voice%20AI.dc.html" style="color:inherit;white-space:nowrap">Voice AI</a><a href="Data-Centre.dc.html" style="color:inherit;white-space:nowrap">DC &amp; Hosting</a><a href="Software-Development.dc.html" style="color:inherit;white-space:nowrap">Development</a><a href="Wholesale.dc.html" style="color:inherit;white-space:nowrap">Wholesale</a><a href="Consulting.dc.html" style="color:inherit;white-space:nowrap">Consulting</a></div>
-      <span class="btn btn-primary" onClick="{{ openDrawer }}" style="flex:0 0 auto;white-space:nowrap;padding:9px clamp(12px,1.4vw,20px);font-size:clamp(12px,.92vw,13px);border-color:var(--acc,#F2B84B);color:var(--acc,#F2B84B);cursor:pointer">Speak to a consultant</span>
+      <span data-navcta="1" class="btn btn-primary" onClick="{{ openDrawer }}" style="flex:0 0 auto;white-space:nowrap;padding:9px clamp(12px,1.4vw,20px);font-size:clamp(12px,.92vw,13px);border-color:var(--acc,#F2B84B);color:var(--acc,#F2B84B);cursor:pointer">Speak to a consultant</span>
+      <span data-mnav-btn="1" onClick="{{ toggleMnav }}" role="button" aria-label="Menu" style="display:none;flex:0 0 auto;width:44px;height:44px;box-sizing:border-box;align-items:center;justify-content:center;flex-direction:column;gap:5px;cursor:pointer;border-radius:9px;border:none;background:#3FBF9F"><i style="display:block;width:19px;height:1.5px;border-radius:2px;background:var(--color-neutral-100)"></i><i style="display:block;width:19px;height:1.5px;border-radius:2px;background:var(--color-neutral-100)"></i><i style="display:block;width:19px;height:1.5px;border-radius:2px;background:var(--color-neutral-100)"></i></span>
     </div>
 
     <span style="position:absolute;inset:0;overflow:hidden;pointer-events:none">
@@ -79,7 +121,7 @@
       </sc-for>
     </span>
 
-    <div style="position:relative;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;padding:40px 56px 96px">
+    <div data-hero-copy="1" style="position:relative;flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:20px;padding:96px 56px 96px">
       <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px">
         <span style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(18,19,29,.6);border:1px solid rgba(255,255,255,.12);font-size:12.4px;color:var(--color-neutral-300);backdrop-filter:blur(10px)"><i style="display:block;width:7px;height:7px;border-radius:50%;background:var(--acc,#F2B84B);box-shadow:0 0 8px var(--acc,#F2B84B);animation:hyPulse 2.2s ease-in-out infinite"></i>Hypervisor Cloud</span>
         <span style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(18,19,29,.6);border:1px solid rgba(255,255,255,.12);font-size:12.4px;color:var(--color-neutral-300);backdrop-filter:blur(10px)"><i style="display:block;width:7px;height:7px;border-radius:50%;background:var(--acc,#F2B84B);box-shadow:0 0 8px var(--acc,#F2B84B);animation:hyPulse 2.2s ease-in-out infinite"></i>Vicidial Cluster</span>
@@ -87,14 +129,14 @@
         <span style="display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;background:rgba(18,19,29,.6);border:1px solid rgba(255,255,255,.12);font-size:12.4px;color:var(--color-neutral-300);backdrop-filter:blur(10px)"><i style="display:block;width:7px;height:7px;border-radius:50%;background:var(--acc,#F2B84B);box-shadow:0 0 8px var(--acc,#F2B84B);animation:hyPulse 2.2s ease-in-out .7s infinite"></i>VoIP Network</span>
         
       </div>
-      <h1 style="font:500 clamp(30px,3.6vw,54px)/1.04 var(--font-heading);letter-spacing:-.04em;margin:0;max-width:1240px;min-height:2.08em;color:var(--color-neutral-100)"><span style="white-space:nowrap">Goodbye click to dial.</span><br><span style="white-space:nowrap">Hello <span style="{{ cycleStyle }}">{{ cycleWord }}</span> dialler.</span></h1>
+      <h1 style="font:500 clamp(30px,3.6vw,54px)/1.04 var(--font-heading);letter-spacing:-.04em;margin:0;max-width:min(1240px,100%);min-height:2.08em;color:var(--color-neutral-100);text-wrap:balance"><span>Goodbye click to dial.</span><br><span data-cycleline="1" style="white-space:nowrap">Hello <span style="{{ cycleStyle }}">{{ cycleWord }}</span> dialler.</span></h1>
       <p style="font-size:18px;line-height:1.6;color:var(--color-neutral-300);margin:0;max-width:640px">Our mission is to automate the human effort it takes to run a call centre &mdash; real-time data omniscience, algorithmic and machine-learning intelligence, and automation across every dynamic of the call centre.</p>
       <div style="display:flex;justify-content:center;gap:12px;margin-top:6px">
         <span class="btn btn-primary" onClick="{{ openDrawer }}" style="padding:13px 26px;font-size:14.5px;border-color:var(--acc,#F2B84B);color:var(--acc,#F2B84B);cursor:pointer">Speak to a consultant</span>
       </div>
     </div>
 
-    <div style="position:absolute;left:0;right:0;bottom:26px;overflow:hidden;pointer-events:none;mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent)">
+    <div data-hero-guard="ticker" style="position:absolute;left:0;right:0;bottom:26px;overflow:hidden;pointer-events:none;mask-image:linear-gradient(to right,transparent,#000 10%,#000 90%,transparent)">
       <div style="display:flex;width:max-content;animation:hyTicker {{ tickerDur }}s linear infinite;font-family:ui-monospace,Menlo,monospace;font-size:12.4px;letter-spacing:.08em;color:var(--color-neutral-500)">
         <div style="display:flex;gap:64px;padding-right:64px"><span><b style="color:var(--acc,#F2B84B);font-weight:500">20 years</b> building Vicidial</span><span><b style="color:#29ABE2;font-weight:500">4 000+</b> agents on one cluster</span><span><b style="color:var(--acc,#F2B84B);font-weight:500">52</b> servers in that cluster</span><span><b style="color:#E86FA4;font-weight:500">99.9%</b> client uptime</span><span><b style="color:#9184D9;font-weight:500">Millions</b> of calls a day</span><span><b style="color:#F2905B;font-weight:500">9c/min</b> to Vodacom and MTN</span><span><b style="color:#4a8fe8;font-weight:500">Per second</b> billing</span></div>
         <div style="display:flex;gap:64px;padding-right:64px"><span><b style="color:var(--acc,#F2B84B);font-weight:500">20 years</b> building Vicidial</span><span><b style="color:#29ABE2;font-weight:500">4 000+</b> agents on one cluster</span><span><b style="color:var(--acc,#F2B84B);font-weight:500">52</b> servers in that cluster</span><span><b style="color:#E86FA4;font-weight:500">99.9%</b> client uptime</span><span><b style="color:#9184D9;font-weight:500">Millions</b> of calls a day</span><span><b style="color:#F2905B;font-weight:500">9c/min</b> to Vodacom and MTN</span><span><b style="color:#4a8fe8;font-weight:500">Per second</b> billing</span></div>
@@ -110,7 +152,7 @@
   </div>
 
   <div data-sec="2.2" data-screen-label="03 Capability checklist" style="padding:0 120px 200px;background:var(--color-bg)">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:0 56px">
+    <div data-mgrid="1" style="display:grid;grid-template-columns:1fr 1fr;gap:0 56px">
       <sc-for list="{{ feats }}" as="f" hint-placeholder-count="10">
         <div style="display:flex;gap:14px;padding:22px 0;border-top:1px solid var(--color-divider)">
           <span style="{{ f.check }}">&#10003;</span>
@@ -128,7 +170,7 @@
       <h2 style="font:500 30px/1.15 var(--font-heading);margin:0;letter-spacing:-.02em">What it costs.</h2>
       <span style="font-family:ui-monospace,Menlo,monospace;font-size:11.5px;letter-spacing:.1em;color:var(--acc,#F2B84B)">PRICING</span>
     </div>
-    <div style="margin:0 -120px;padding:0 120px;overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)">
+    <div data-bleed="1" style="margin:0 -120px;padding:0 120px;overflow:hidden;mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)">
       <div data-price-drag="1" style="cursor:grab;will-change:transform"><div style="display:flex;width:max-content;user-select:none;touch-action:pan-y;animation:hyPriceRun 52s linear infinite" style-hover="animation-play-state:paused">
         <div style="display:flex;gap:20px;padding-right:20px">
           <sc-for list="{{ priceCards }}" as="p" hint-placeholder-count="6">
@@ -337,45 +379,44 @@
   </div>
 
   <div data-screen-label="14 Footer" style="position:relative;overflow:hidden;padding:112px 120px 0;background:linear-gradient(to right,transparent,var(--color-divider) 120px,var(--color-divider) calc(100% - 120px),transparent) no-repeat top / 100% 1px">
-    <img src="assets/logo-africa-mark.png" alt="" style="position:absolute;right:120px;bottom:24px;width:374px;height:auto;filter:grayscale(1) brightness(.05);opacity:.12;pointer-events:none;user-select:none">
+    <img data-fmark="1" src="assets/logo-africa-mark.png" alt="" style="position:absolute;right:120px;bottom:24px;width:374px;height:auto;filter:grayscale(1) brightness(.05);opacity:.12;pointer-events:none;user-select:none">
     <span style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 20%,rgba(0,0,0,.7));pointer-events:none"></span>
-    <span style="position:absolute;left:-4%;top:0;width:42%;height:74%;background:radial-gradient(60% 70% at 30% 30%,color-mix(in srgb,#F2B84B 12%,transparent),transparent 72%);filter:blur(40px);animation:fSpot 13s ease-in-out infinite;pointer-events:none"></span>
-    <div style="position:relative;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:48px;align-items:start">
+    <span style="position:absolute;left:-4%;top:0;width:42%;height:74%;background:radial-gradient(60% 70% at 30% 30%,color-mix(in srgb,#3FBF9F 12%,transparent),transparent 72%);filter:blur(40px);animation:fSpot 13s ease-in-out infinite;pointer-events:none"></span>
+    <div data-fgrid="1" style="position:relative;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:48px;align-items:start">
       <div style="display:flex;flex-direction:column;gap:18px;max-width:300px">
         <div style="display:flex;align-items:center">
           <a href="Homepage.dc.html" style="display:block;text-decoration:none"><img data-logo="1" src="assets/logo-wordmark-white.png" alt="BizVoip" style="height:26px;width:auto;display:block"></a>
         </div>
         <p style="font-size:14.2px;line-height:1.65;color:var(--color-neutral-400);margin:0">We build and host large-scale telecommunication applications &mdash; software development, hosting and support are our biggest divisions. We own the whole stack: data centre, ISP, hypervisor and the software that runs on it.</p>
-        <a href="#" style="width:34px;height:34px;border-radius:50%;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font-size:12.6px;font-weight:600;color:var(--color-neutral-300);text-decoration:none" style-hover="border-color:#F2B84B;color:#F2B84B">in</a>
+        <a href="#" style="width:34px;height:34px;border-radius:50%;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font-size:12.6px;font-weight:600;color:var(--color-neutral-300);text-decoration:none" style-hover="border-color:#3FBF9F;color:#3FBF9F">in</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px">
         <span style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-neutral-100);font-weight:700;margin-bottom:5px">Services</span>
-        <a href="Office.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Office Telephony</a>
-        <a href="Call-Centre.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Call Centre Telephony</a>
-        <a href="Enterprise.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Enterprise Telephony</a>
-        <a href="Programmable-Telephony.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Programmable Telephony</a>
-        <a href="AI-Voice.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Voice AI Agents</a>
-        <a href="Data-Centre.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Data Centre &amp; Hosting</a>
-        <a href="Software-Development.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Software Development</a>
-        <a href="Wholesale.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Wholesale &amp; Resellers</a>
-        <a href="Consulting.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Consulting</a>
+        <a href="Office.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Office Telephony</a>
+        <a href="Call-Centre.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Call Centre Telephony</a>
+        <a href="Programmable-Telephony.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Programmable Telephony</a>
+        <a href="Voice%20AI.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Voice AI Agents</a>
+        <a href="Data-Centre.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Data Centre &amp; Hosting</a>
+        <a href="Software-Development.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Software Development</a>
+        <a href="Wholesale.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Wholesale &amp; Resellers</a>
+        <a href="Consulting.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Consulting</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px">
         <span style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-neutral-100);font-weight:700;margin-bottom:5px">Contact</span>
-        <a href="mailto:sales@bizvoip.co.za" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">sales@bizvoip.co.za</a>
-        <a href="mailto:support@bizvoip.co.za" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">support@bizvoip.co.za</a>
-        <a href="mailto:accounts@bizvoip.co.za" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">accounts@bizvoip.co.za</a>
-        <a href="tel:+27876543210" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">+27 87 654 3210</a>
+        <a href="mailto:sales@bizvoip.co.za" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">sales@bizvoip.co.za</a>
+        <a href="mailto:support@bizvoip.co.za" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">support@bizvoip.co.za</a>
+        <a href="mailto:accounts@bizvoip.co.za" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">accounts@bizvoip.co.za</a>
+        <a href="tel:+27876543210" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">+27 87 654 3210</a>
         <span style="font-size:14.2px;color:var(--color-neutral-400);line-height:1.25">Cape Town, South Africa</span>
       </div>
       <div style="display:flex;flex-direction:column;gap:10px">
         <span style="font-size:11.5px;letter-spacing:0.18em;text-transform:uppercase;color:var(--color-neutral-100);font-weight:700;margin-bottom:5px">Company</span>
-        <a href="POPIA.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Privacy Policy</a>
-        <a href="Company-Info.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Company Info</a>
-        <a href="Arch1medes.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#F2B84B">Arch1medes Platform</a>
+        <a href="POPIA.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Privacy Policy</a>
+        <a href="Company-Info.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Company Info</a>
+        <a href="Arch1medes.dc.html" style="font-size:14.2px;color:var(--color-neutral-400);text-decoration:none;line-height:1.25" style-hover="color:#3FBF9F">Arch1medes Platform</a>
       </div>
     </div>
-    <div style="display:flex;align-items:center;gap:24px;margin-top:48px;padding:22px 0 28px;border-top:2px solid var(--color-divider);font-size:13.1px;color:var(--color-neutral-500)">
+    <div data-fbar="1" style="display:flex;align-items:center;gap:24px;margin-top:48px;padding:22px 0 28px;border-top:2px solid var(--color-divider);font-size:13.1px;color:var(--color-neutral-500)">
       <span>&copy; 2026 Bizvoip (Pty) Ltd. All rights reserved.</span>
       <span style="margin-left:auto">Reg 2020/637692/07 &middot; Cape Town, South Africa</span>
     </div>
@@ -386,13 +427,13 @@
     <div style="display:flex;align-items:center;gap:12px;padding:20px 26px;border-bottom:1px solid var(--color-divider)">
       <div style="display:flex;flex-direction:column;gap:3px">
         <span style="font-size:17px;font-family:var(--font-heading);font-weight:500;color:var(--color-neutral-100)">Speak to a consultant</span>
-        <span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--acc,#F2B84B)">{{ drawerRef }}</span>
+        <span style="font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--acc,#3FBF9F)">{{ drawerRef }}</span>
       </div>
-      <span onClick="{{ closeDrawer }}" style="margin-left:auto;cursor:pointer;width:32px;height:32px;border-radius:8px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--color-neutral-400)" style-hover="border-color:var(--acc,#F2B84B);color:var(--acc,#F2B84B)">&times;</span>
+      <span onClick="{{ closeDrawer }}" style="margin-left:auto;cursor:pointer;width:32px;height:32px;border-radius:8px;border:1px solid var(--color-divider);display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--color-neutral-400)" style-hover="border-color:var(--acc,#3FBF9F);color:var(--acc,#3FBF9F)">&times;</span>
     </div>
     <sc-if value="{{ drawerSent }}" hint-placeholder-val="{{ false }}">
       <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:64px 32px;text-align:center">
-        <span style="width:46px;height:46px;border-radius:50%;background:color-mix(in srgb,var(--acc,#F2B84B) 16%,transparent);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--acc,#F2B84B)">&#10003;</span>
+        <span style="width:46px;height:46px;border-radius:50%;background:color-mix(in srgb,var(--acc,#3FBF9F) 16%,transparent);display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--acc,#3FBF9F)">&#10003;</span>
         <span style="font-size:17px;font-weight:500;color:var(--color-neutral-100)">Request sent</span>
         <p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-400);margin:0;max-width:290px">An engineer &mdash; not a call centre &mdash; will come back to you within one business day.</p>
         <span class="btn btn-secondary" onClick="{{ closeDrawer }}" style="margin-top:8px;padding:9px 20px;cursor:pointer">Close</span>
@@ -403,23 +444,23 @@
         <p style="font-size:13.5px;line-height:1.6;color:var(--color-neutral-400);margin:0">Tell us what you need and we will put the right engineer on it.</p>
         <sc-if value="{{ askAgents }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;gap:6px">
-          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">How many agents do you have? <span style="color:var(--acc,#F2B84B)">*</span></label>
+          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">How many agents do you have? <span style="color:var(--acc,#3FBF9F)">*</span></label>
           <input class="hy-field" placeholder="e.g. 40" onInput="{{ setScope }}">
         </div>
         </sc-if>
         <sc-if value="{{ askAvm }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;gap:6px">
-            <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">How many leads do you AVM a month? <span style="color:var(--acc,#F2B84B)">*</span></label>
+            <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">How many leads do you AVM a month? <span style="color:var(--acc,#3FBF9F)">*</span></label>
             <input class="hy-field" placeholder="e.g. 250 000" onInput="{{ setLeads }}">
           </div>
           <div style="display:flex;flex-direction:column;gap:6px">
-            <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">How many concurrent channels do you need? <span style="color:var(--acc,#F2B84B)">*</span></label>
+            <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">How many concurrent channels do you need? <span style="color:var(--acc,#3FBF9F)">*</span></label>
             <input class="hy-field" placeholder="e.g. 500" onInput="{{ setChannels }}">
           </div>
         </sc-if>
         <sc-if value="{{ askAgents }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;gap:6px">
-          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Mostly inbound or outbound calls? <span style="color:var(--acc,#F2B84B)">*</span></label>
+          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Mostly inbound or outbound calls? <span style="color:var(--acc,#3FBF9F)">*</span></label>
           <div style="display:flex;gap:8px">
             <span onClick="{{ pickIn }}" style="{{ styleIn }}">Inbound</span>
             <span onClick="{{ pickOut }}" style="{{ styleOut }}">Outbound</span>
@@ -428,7 +469,7 @@
         </div>
         <sc-if value="{{ askDial }}" hint-placeholder-val="{{ false }}">
           <div style="display:flex;flex-direction:column;gap:6px">
-            <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">How do agents dial? <span style="color:var(--acc,#F2B84B)">*</span></label>
+            <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">How do agents dial? <span style="color:var(--acc,#3FBF9F)">*</span></label>
             <div style="display:flex;gap:8px">
               <span onClick="{{ pickPower }}" style="{{ stylePower }}">Power dial</span>
               <span onClick="{{ pickClick }}" style="{{ styleClick }}">Click to dial</span>
@@ -437,19 +478,19 @@
         </sc-if>
         </sc-if>
         <div style="display:flex;flex-direction:column;gap:6px">
-          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Full name <span style="color:var(--acc,#F2B84B)">*</span></label>
+          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Full name <span style="color:var(--acc,#3FBF9F)">*</span></label>
           <input class="hy-field" placeholder="Your name" onInput="{{ setName }}">
         </div>
         <div style="display:flex;flex-direction:column;gap:6px">
-          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Company <span style="color:var(--acc,#F2B84B)">*</span></label>
+          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Company <span style="color:var(--acc,#3FBF9F)">*</span></label>
           <input class="hy-field" placeholder="Company name" onInput="{{ setCompany }}">
         </div>
         <div style="display:flex;flex-direction:column;gap:6px">
-          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Email <span style="color:var(--acc,#F2B84B)">*</span></label>
+          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Email <span style="color:var(--acc,#3FBF9F)">*</span></label>
           <input class="hy-field" type="email" placeholder="you@company.co.za" onInput="{{ setEmail }}">
         </div>
         <div style="display:flex;flex-direction:column;gap:6px">
-          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Phone <span style="color:var(--acc,#F2B84B)">*</span></label>
+          <label style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--color-neutral-500)">Phone <span style="color:var(--acc,#3FBF9F)">*</span></label>
           <input class="hy-field" type="tel" placeholder="0876543210" onInput="{{ setPhone }}">
         </div>
         <div style="display:flex;flex-direction:column;gap:6px">
@@ -458,24 +499,45 @@
         </div>
         <span class="btn btn-primary" onClick="{{ sendDrawer }}" style="{{ sendStyle }}">Send request</span>
         <sc-if value="{{ showMissing }}" hint-placeholder-val="{{ false }}">
-          <span style="font-size:11.8px;line-height:1.5;color:var(--acc,#F2B84B)">{{ missingText }}</span>
+          <span style="font-size:11.8px;line-height:1.5;color:var(--acc,#3FBF9F)">{{ missingText }}</span>
         </sc-if>
         <span style="font-size:11.5px;line-height:1.55;color:var(--color-neutral-500)">Or email <a href="mailto:sales@bizvoip.co.za">sales@bizvoip.co.za</a> &middot; +27 87 654 3210 (M&ndash;F 8am&ndash;5pm)</span>
       </div>
     </sc-if>
   </div>
+
+  <div class="hy-mscrim" data-open="{{ mnavOpen }}" onClick="{{ closeMnav }}"></div>
+  <div class="hy-mnav" data-open="{{ mnavOpen }}" data-screen-label="Mobile menu">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid var(--color-divider)">
+      <img src="assets/logo-wordmark-white.png" alt="BizVoip" style="height:19px;width:auto;display:block">
+      <span onClick="{{ closeMnav }}" role="button" aria-label="Close" style="display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;font-size:26px;line-height:1;color:var(--color-neutral-300);cursor:pointer">&times;</span>
+    </div>
+    <div style="display:flex;flex-direction:column;padding:8px 20px 20px;overflow-y:auto">
+      <a href="Office.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Office Telephony</a>
+      <a href="Call-Centre.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Call Centre Telephony</a>
+      <a href="Programmable-Telephony.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Programmable Telephony</a>
+      <a href="Voice%20AI.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Voice AI Agents</a>
+      <a href="Data-Centre.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Data Centre &amp; Hosting</a>
+      <a href="Software-Development.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Software Development</a>
+      <a href="Wholesale.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Wholesale Carrier</a>
+      <a href="Consulting.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Consulting</a>
+      <a href="Arch1medes.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Arch1medes</a>
+      <a href="Company-Info.dc.html" onClick="{{ closeMnav }}" style="display:flex;align-items:center;min-height:52px;padding:0 4px;font-size:16.5px;color:var(--color-neutral-200);text-decoration:none;border-bottom:1px solid var(--color-divider)" style-hover="color:#3FBF9F">Company</a>
+      <span class="btn btn-primary" onClick="{{ openDrawerFromMnav }}" style="margin-top:22px;justify-content:center;padding:14px 20px;font-size:14.5px;border-color:#3FBF9F;color:#3FBF9F;cursor:pointer;text-align:center">Speak to a consultant</span>
+    </div>
+  </div>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;accentColour&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#3FBF9F&quot;,&quot;options&quot;:[&quot;#F2B84B&quot;,&quot;#29ABE2&quot;,&quot;#3FBF9F&quot;,&quot;#E86FA4&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;heroWords&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;tickerSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:42,&quot;min&quot;:20,&quot;max&quot;:90,&quot;step&quot;:2,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;accentColour&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#3FBF9F&quot;,&quot;options&quot;:[&quot;#3FBF9F&quot;,&quot;#29ABE2&quot;,&quot;#3FBF9F&quot;,&quot;#E86FA4&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Theme&quot;},&quot;heroWords&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Hero&quot;},&quot;tickerSpeed&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:42,&quot;min&quot;:20,&quot;max&quot;:90,&quot;step&quot;:2,&quot;unit&quot;:&quot;s&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Hero&quot;}}">
 class Component extends DCLogic {
-  static W = [['automated', 'var(--acc,#F2B84B)'], ['predictive', '#E86FA4'], ['power', '#3FBF9F'], ['adaptive', '#9184D9'], ['intelligent', 'var(--acc,#F2B84B)'], ['algorithmic', '#8CC96B']];
+  static W = [['automated', 'var(--acc,#3FBF9F)'], ['predictive', '#E86FA4'], ['power', '#3FBF9F'], ['adaptive', '#9184D9'], ['intelligent', 'var(--acc,#3FBF9F)'], ['algorithmic', '#8CC96B']];
 
   static F = [
     ['01', 'Auto dial and click-to-dial', 'Predictive, progressive and preview campaigns, blended with inbound queues on the same floor.', '#3FBF9F'],
     ['02', 'Real-time wallboards', 'Live campaign, queue and agent metrics on the wall and on every supervisor screen.', '#9184D9'],
     ['03', 'Data and agent management', 'Lists, recycling rules, dispositions, skills and shifts, all managed in one place.', '#29ABE2'],
     ['04', 'Barge, whisper and listen', 'Coach a new agent mid-call or take the call over without the customer noticing.', '#E86FA4'],
-    ['05', 'Advanced reporting', 'The reporting QA actually asks for — by campaign, agent, disposition and hour.', '#F2B84B'],
+    ['05', 'Advanced reporting', 'The reporting QA actually asks for — by campaign, agent, disposition and hour.', '#3FBF9F'],
     ['06', 'Call recording and voicemail detection', 'Every call recorded and searchable, with operator-tunable answering-machine detection.', '#F2905B'],
     ['07', 'Remote agents on WebRTC', 'A browser and a headset is the whole agent desk — no VPN, no desk phone.', '#6C8CFF'],
     ['08', 'Live transfer and conference', 'Warm transfers with context, three-way calls and supervisor escalation.', '#8CC96B'],
@@ -484,9 +546,9 @@ class Component extends DCLogic {
   ];
 
   static P = [
-    ['vicidial \u00b7 standard', 'var(--acc,#F2B84B)', 'Vicidial Standard', 'R345', 'per user / month', 'The complete open-source call centre \u2014 campaigns, recording, wallboards and reporting, hosted and managed by us.'],
+    ['vicidial \u00b7 standard', 'var(--acc,#3FBF9F)', 'Vicidial Standard', 'R345', 'per user / month', 'The complete open-source call centre \u2014 campaigns, recording, wallboards and reporting, hosted and managed by us.'],
     ['vicidial \u00b7 premium', '#29ABE2', 'Vicidial Premium', 'R555', 'per user / month \u00b7 9c / min', 'Everything in Standard plus a super-low 9c per minute rate to Vodacom and MTN, billed per second.'],
-    ['avm', 'var(--acc,#F2B84B)', 'Automatic Voice Messaging', 'From R79', 'per channel / month', 'High-capacity voice messaging \u2014 broadcasts, surveys, reminders and alerts. Millions of contacts a day.'],
+    ['avm', 'var(--acc,#3FBF9F)', 'Automatic Voice Messaging', 'From R79', 'per channel / month', 'High-capacity voice messaging \u2014 broadcasts, surveys, reminders and alerts. Millions of contacts a day.'],
     ['extras', '#9184D9', 'Disaster recovery', 'On quote', 'per cluster / month', 'Standby cluster with database replication, so a bad afternoon does not become a bad month.'],
     ['extras', '#E86FA4', 'AWS backups', 'On quote', 'recordings and database', 'Recordings and database backed up off-site to AWS, with retention rules you choose.'],
     ['services', '#F2905B', 'Consultation and SLA', 'On quote', 'for your own instance', 'Advice and backup for teams running their own Vicidial \u2014 without handing over the keys.']
@@ -607,8 +669,8 @@ class Component extends DCLogic {
 
   _yn(on) {
     return 'flex:1;text-align:center;padding:9px 14px;border-radius:8px;cursor:pointer;user-select:none;font-size:13px;transition:all .18s ease;border:1px solid ' +
-      (on ? 'var(--acc,#F2B84B)' : 'var(--color-divider)') + ';background:' + (on ? 'color-mix(in srgb,var(--acc,#F2B84B) 14%,transparent)' : 'transparent') +
-      ';color:' + (on ? 'var(--acc,#F2B84B)' : 'var(--color-neutral-300)');
+      (on ? 'var(--acc,#3FBF9F)' : 'var(--color-divider)') + ';background:' + (on ? 'color-mix(in srgb,var(--acc,#3FBF9F) 14%,transparent)' : 'transparent') +
+      ';color:' + (on ? 'var(--acc,#3FBF9F)' : 'var(--color-neutral-300)');
   }
 
   _missing() {
@@ -641,13 +703,17 @@ class Component extends DCLogic {
     }));
     const cards = Component.P.map(p => ({
       kind: p[0], title: p[2], price: p[3], unit: p[4], note: p[5],
-      box: 'position:relative;overflow:hidden;flex:none;width:380px;box-sizing:border-box;display:flex;flex-direction:column;gap:10px;padding:30px 28px 28px;border-radius:var(--radius-md,8px);border:1px solid color-mix(in srgb,' + p[1] + ' 26%,var(--color-divider));background:linear-gradient(160deg,color-mix(in srgb,' + p[1] + ' 9%,transparent),transparent 62%),var(--color-surface,#1b1d2b)',
+      box: 'position:relative;overflow:hidden;flex:none;width:min(380px,78vw);box-sizing:border-box;display:flex;flex-direction:column;gap:10px;padding:30px 28px 28px;border-radius:var(--radius-md,8px);border:1px solid color-mix(in srgb,' + p[1] + ' 26%,var(--color-divider));background:linear-gradient(160deg,color-mix(in srgb,' + p[1] + ' 9%,transparent),transparent 62%),var(--color-surface,#1b1d2b)',
       kicker: 'font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:' + p[1],
       priceStyle: 'font:500 42px/1 var(--font-heading);letter-spacing:-.035em;white-space:nowrap;color:' + p[1],
       rule: 'height:1px;background:linear-gradient(to right,color-mix(in srgb,' + p[1] + ' 40%,transparent),transparent)'
     }));
     const w = (this.props.heroWords ?? true) ? Component.W[Math.floor(this.state.tick / 4) % Component.W.length] : Component.W[0];
     return {
+      mnavOpen: !!this.state.mnavOpen,
+      toggleMnav: () => this.setState(s => ({ mnavOpen: !s.mnavOpen })),
+      closeMnav: () => this.setState({ mnavOpen: false }),
+      openDrawerFromMnav: () => this.setState({ mnavOpen: false, dOpen: true, dSent: false }),
       drawerRef: 'bizvoip.co.za \u00b7 call centre telephony' + (this.state.sec ? ' \u00b7 ' + this.state.sec : ''),
       drawerOpen: this.state.dOpen,
       drawerSent: this.state.dOpen && this.state.dSent,
@@ -676,7 +742,7 @@ class Component extends DCLogic {
       setCompany: e => this._setF('company', e.target.value),
       setEmail: e => this._setF('email', e.target.value),
       setPhone: e => this._setF('phone', e.target.value),
-      sendStyle: 'cursor:pointer;justify-content:center;padding:12px 20px;transition:all .2s ease;' + (this._missing().length ? 'border-color:var(--color-divider);color:var(--color-neutral-600)' : 'border-color:var(--acc,#F2B84B);color:var(--acc,#F2B84B)'),
+      sendStyle: 'cursor:pointer;justify-content:center;padding:12px 20px;transition:all .2s ease;' + (this._missing().length ? 'border-color:var(--color-divider);color:var(--color-neutral-600)' : 'border-color:var(--acc,#3FBF9F);color:var(--acc,#3FBF9F)'),
       showMissing: this.state.tried && this._missing().length > 0,
       missingText: this._missing().length ? 'Still needed: ' + this._missing().join(', ') + '.' : '',
       cycleWord: w[0],
@@ -684,7 +750,7 @@ class Component extends DCLogic {
       heroBars: this._bars(46, 11, 260, 6, 'rgba(0,0,0,1)', 1.6),
       avmBars: this._bars(30, 29, 74, 4, 'color-mix(in srgb,#29ABE2 55%,transparent)', 1.2),
       heroIcons: this._icons(),
-      accentHex: this.props.accentColour ?? '#F2B84B',
+      accentHex: this.props.accentColour ?? '#3FBF9F',
       tickerDur: this.props.tickerSpeed ?? 42,
       feats: feats,
       priceCards: cards
